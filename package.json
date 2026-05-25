@@ -1,0 +1,43 @@
+{
+  "name": "stockmb-app",
+  "version": "1.0.0",
+  "description": "ระบบจัดการสต็อกสินค้า StockMB",
+  "author": "ACER",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.acer.stockmb",
+    "productName": "StockMB Management",
+    "files": [
+      "**/*",
+      "main.js",
+      "package.json",
+      "stockmb.db" 
+    ],
+    "extraResources": [
+      "stockmb.db"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "asar": false 
+  },
+  "dependencies": {
+    "sqlite3": "5.1.6",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^24.13.3"
+  }
+}
